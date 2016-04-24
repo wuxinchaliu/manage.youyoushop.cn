@@ -49,11 +49,13 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+
         return $this->render('index');
     }
 
     public function actionLogin()
     {
+        $this->layout='column1';
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }
