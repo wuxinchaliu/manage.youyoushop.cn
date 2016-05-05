@@ -1,0 +1,15 @@
+CREATE TABLE `yy_admin_user` (
+  `user_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(60) NOT NULL DEFAULT '',
+  `password` varchar(32) NOT NULL DEFAULT '',
+  `email` varchar(60) NOT NULL DEFAULT '',
+  `salt` varchar(10) DEFAULT NULL,
+  `role_id` smallint(5) DEFAULT NULL,
+  `user_status` smallint(2) NOT NULL DEFAULT '0' COMMENT '用户是否有效  0-有效，1-无效',
+  `mobile` bigint(13) NOT NULL DEFAULT '0' COMMENT '手机号',
+  `add_time` int(10) unsigned NOT NULL DEFAULT '0',
+  `last_login` int(10) unsigned NOT NULL DEFAULT '0',
+  `last_ip` varchar(15) NOT NULL DEFAULT '',
+  PRIMARY KEY (`user_id`)
+
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='后台用户管理表';

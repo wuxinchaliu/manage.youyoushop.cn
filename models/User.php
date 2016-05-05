@@ -1,50 +1,47 @@
 <?php
 
 namespace app\models;
+use app\models\AdminUser;
+use yii\base\Object;
+use yii\web\IdentityInterface;
 
-class User extends \yii\base\Object implements \yii\web\IdentityInterface
+class User extends Object implements IdentityInterface
 {
-    public $id;
+    public $user_id;
     public $username;
     public $password;
-    public $authKey;
-    public $accessToken;
-
-    private static $users = [
-        '100' => [
-            'id' => '100',
-            'username' => 'admin',
-            'password' => 'admin',
-            'authKey' => 'test100key',
-            'accessToken' => '100-token',
-        ],
-        '101' => [
-            'id' => '101',
-            'username' => 'demo',
-            'password' => 'demo',
-            'authKey' => 'test101key',
-            'accessToken' => '101-token',
-        ],
-    ];
-
+    public $auth_key;
+    public $access_token;
+    public $email;
+    public $salt;
+    public $role_id;
+    public $user_status;
+    public $mobile;
+    public $add_time;
+    public $last_login;
+    public $last_ip;
     /**
      * @inheritdoc
      */
-    public static function findIdentity($id)
-    {
-        return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+    public static function findIdentity($user_id) {
+        $user = self::findById($user_id);
+        if ($user) {
+            return new static($user);
+        }
+        return null;
     }
+
 
     /**
      * @inheritdoc
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        foreach (self::$users as $user) {
-            if ($user['accessToken'] === $token) {
-                return new static($user);
-            }
+        $user = AdminUser::find()->where(array('access_token' => $token))->one();
+        if ($user) {
+            return new static($user);
         }
+
 
         return null;
     }
@@ -57,10 +54,18 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public static function findByUsername($username)
     {
-        foreach (self::$users as $user) {
-            if (strcasecmp($user['username'], $username) === 0) {
-                return new static($user);
-            }
+        $user = AdminUser::find()->where(array('username' => $username))->one();
+        if ($user) {
+            return new static($user);
+        }
+
+        return null;
+    }
+
+    public static function findById($user_id) {
+        $user = AdminUser::find()->where(array('user_id' => $user_id))->asArray()->one();
+        if ($user) {
+            return new static($user);
         }
 
         return null;
@@ -71,7 +76,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public function getId()
     {
-        return $this->id;
+        return $this->user_id;
     }
 
     /**
@@ -79,7 +84,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public function getAuthKey()
     {
-        return $this->authKey;
+        return $this->auth_key;
     }
 
     /**
@@ -87,7 +92,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public function validateAuthKey($authKey)
     {
-        return $this->authKey === $authKey;
+        return $this->auth_key === $authKey;
     }
 
     /**
@@ -98,6 +103,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public function validatePassword($password)
     {
-        return $this->password === $password;
+        return $password === $this->password;
+        //return Yii::$app->getSecurity()->validatePassword($password, $this->password);
     }
 }
