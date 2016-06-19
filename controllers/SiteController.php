@@ -42,6 +42,12 @@ class SiteController extends Controller
             ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
+                'maxLength' => 5,
+                'minLength' => 5,
+               // 'height' => 40,
+               // 'width' => 110,
+                'foreColor' => 0xd43f3a,
+                'transparent' => true,
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
@@ -49,7 +55,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-
+       // $this->layout='column2';
         return $this->render('index');
     }
 

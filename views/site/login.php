@@ -37,9 +37,15 @@ $this->params['breadcrumbs'][] = $this->title;
                             ]); ?>
                             <?php echo $form->field($model, 'username')->textInput(['autofocus' => false, 'tint']); ?>
                             <?php echo $form->field($model, 'password')->passwordInput(); ?>
-                            <?php echo $form->field($model, 'rememberMe')->checkbox([
-                                   'template' => "<div class=\"col-lg-offset-1 col-lg-6\">{input} {label}</div>\n<div class=\"col-lg-6\">{error}</div>",
-                                    ]) ?>
+
+                            <?= $form->field($model, 'verifyCode', [
+                                    'options' => ['class' => 'form-group form-group-lg'],
+                            ])->widget(yii\captcha\Captcha::className(),[
+                                    'imageOptions'=>['alt'=>'点击换图','title'=>'点击换图', 'style'=>'cursor:pointer'],
+                                    'captchaAction' => 'site/captcha',
+                                    'template' => '<div class="row"><div class="col-lg-6">{input}</div><div class="col-lg-3">{image}</div></div>',
+                            ]); ?>
+
 
                             <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-6">
@@ -55,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
 
                     <div class="widget-foot">
-                        @Power by <a href="youyoushop.cn" target="_blank">youyoushop.cn</a>
+                        @Power by <a href="http://www.youyoushop.cn" target="_blank">youyoushop.cn</a>
                     </div>
                 </div>
             </div>

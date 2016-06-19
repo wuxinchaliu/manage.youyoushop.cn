@@ -18,7 +18,7 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode(Yii::$app->name) ?>23423423</title>
+    <title><?= Html::encode(Yii::$app->name) ?></title>
     <link href="/static/style/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="/static/style/font-awesome.css">
     <link href="/static/style/style.css" rel="stylesheet">

@@ -13,3 +13,14 @@ CREATE TABLE `yy_admin_user` (
   PRIMARY KEY (`user_id`)
 
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='后台用户管理表';
+
+CREATE TABLE `qf_category` (
+  `cate_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `parent_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '父分类id',
+  `cate_name` varchar(20) NOT NULL DEFAULT '' COMMENT '分类名称',
+  `description` varchar(255) NOT NULL DEFAULT '' COMMENT '分类描述',
+  `tag` VARCHAR(100) NOT NULL DEFAULT '' COMMENT 'tag标签',
+  `sort` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '排序ID',
+  `create_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`cate_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='分类表';

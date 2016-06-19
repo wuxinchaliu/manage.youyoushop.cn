@@ -9,6 +9,11 @@ $config = [
     'name' => '优优商城单商户后台管理系统',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'modules' => [
+        'category' => [
+            'class' => 'app\modules\category\Module',
+        ],
+    ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation

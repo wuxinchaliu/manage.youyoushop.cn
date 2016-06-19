@@ -103,7 +103,7 @@ class User extends Object implements IdentityInterface
      */
     public function validatePassword($password)
     {
-        return $password === $this->password;
+        return md5($password.$this->salt) === $this->password;
         //return Yii::$app->getSecurity()->validatePassword($password, $this->password);
     }
 }

@@ -3,7 +3,6 @@ body{
 	line-height: 22px;
 	color: #666;
 	border-top: 3px solid #eee;
-	background:#343434 url("../images/back.png") repeat;
 	padding-top: 37px;
 	-webkit-font-smoothing: antialiased;
 }
@@ -737,11 +736,11 @@ header .header-data .hdata em{
 	margin-right: 5px ;
 	background: #eee ;
 	color:#888;
-	width: 38px;
-	height: 38px;
-	line-height: 38px;
+	width: 28px;
+	height: 28px;
+	line-height: 28px;
 	text-align: center;
-	border-radius: 30px;
+	border-radius: 25px;
 	border: 1px solid #ccc;
 }
 
@@ -824,7 +823,6 @@ header .header-data .hdata em{
 	margin-left: 230px;
 	margin-right: 0px;
 	width: auto;
-	background:#eee url("../images/main-back.png") repeat;
 	border-left: 1px solid #ccc;
 	z-index: 50;
 	min-height: 800px;
@@ -1043,6 +1041,12 @@ header .header-data .hdata em{
 	margin: 0px 4px;
 }
 
+.widget .widget-content{
+    margin-top:20px;
+}
+.widget .widget-content .form-horizontal{
+    margin:10px 20px;
+}
 .widget .widget-foot, .modal-footer{
   background-color: #f8f8f8;
   background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f2f2f2));
@@ -1748,3 +1752,5 @@ footer .copy{
 		display: none;
 	}
 }
+
+.content{margin-top:10px;}
