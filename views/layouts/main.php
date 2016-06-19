@@ -53,7 +53,7 @@ AppAsset::register($this);
                     <ul class="dropdown-menu">
                         <li><a href="#"><i class="icon-user"></i> 资料</a></li>
                         <li><a href="#"><i class="icon-cogs"></i> 设置</a></li>
-                        <li><a href="login.html"><i class="icon-off"></i> 退出</a></li>
+                        <li><a href="/site/logout"><i class="icon-off"></i> 退出</a></li>
                     </ul>
                 </li>
 

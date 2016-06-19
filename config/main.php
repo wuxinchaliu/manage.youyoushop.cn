@@ -6,12 +6,15 @@ $config = [
     'id' => 'basic',
     'language' => 'en',
     'charset' => 'utf-8',
-    'name' => '优优商城单商户后台管理系统',
+    'name' => '启发课堂后台管理系统',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'modules' => [
         'category' => [
             'class' => 'app\modules\category\Module',
+        ],
+        'image' => [
+            'class' => 'app\modules\image\module',
         ],
     ],
     'components' => [

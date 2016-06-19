@@ -11,27 +11,10 @@ use app\models\ContactForm;
 
 class SiteController extends Controller
 {
+    public $enableCsrfValidation = false;
     public function behaviors()
     {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout'],
-                'rules' => [
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
+
     }
 
     public function actions()
@@ -48,13 +31,17 @@ class SiteController extends Controller
                // 'width' => 110,
                 'foreColor' => 0xd43f3a,
                 'transparent' => true,
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+                'fixedVerifyCode' =>'8888'
+                #'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
     }
 
     public function actionIndex()
     {
+        if (\Yii::$app->user->isGuest) {
+            return $this->redirect('/site/login');
+        }
        // $this->layout='column2';
         return $this->render('index');
     }

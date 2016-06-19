@@ -14,7 +14,7 @@ CREATE TABLE `yy_admin_user` (
 
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='后台用户管理表';
 
-CREATE TABLE `qf_category` (
+CREATE TABLE `yy_category` (
   `cate_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `parent_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '父分类id',
   `cate_name` varchar(20) NOT NULL DEFAULT '' COMMENT '分类名称',
