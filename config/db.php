@@ -12,7 +12,7 @@ return [
         ]
     ],
     'masters' => [
-        ['dsn' => 'mysql:host=localhost;port=3306;dbname=yyshop;charset=utf8'],
+        ['dsn' => 'mysql:host=localhost;port=3306;dbname=youyou;charset=utf8'],
     ],
 
     //配置从服务器
@@ -24,9 +24,9 @@ return [
         ],
     ],
     'slaves' => [
-        ['dsn' => 'mysql:host=localhost;port=3306;dbname=yyshop;charset=utf8'],
+        ['dsn' => 'mysql:host=localhost;port=3306;dbname=youyou;charset=utf8'],
     ],
     'enableSlaves' => true,
-    'tablePrefix' => 'yy_',
+    'tablePrefix' => 'so_',
     'queryCacheDuration' => '0',
 ];
