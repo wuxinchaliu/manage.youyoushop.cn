@@ -8,6 +8,7 @@ $config = [
     'charset' => 'utf-8',
     'name' => '启发课堂后台管理系统',
     'basePath' => dirname(__DIR__),
+    'defaultRoute' => '/s/index',
     'bootstrap' => ['log'],
     'modules' => [
         'category' => [
@@ -35,9 +36,12 @@ $config = [
         'elasticsearch' => [
             'class' => 'yii\elasticsearch\Connection',
             'nodes' => [
-                ['http_address' => '127.0.0.1:9200'],
+                [
+                    'http_address' => '127.0.0.1:9200',
+                ],
                 // configure more hosts if you have a cluster
             ],
+            'auth' => ['username' => 'qilin', 'password' => 'qilin@123']
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',

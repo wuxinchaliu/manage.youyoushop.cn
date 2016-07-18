@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Item;
 
 class SiteController extends Controller
 {
@@ -103,5 +104,14 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionSearch(){
+        $data = Item::find()->query(["match" => ["title" => "中国"]])->all();
+        print_r($data);exit;
+        $data = Item::find()->where(['title' => '中国'])->one(); // find by query, note that you need to configure mapping for this field in order to find records properly
+        print_r($data);
+        //$customers = Customer::find()->active()->all(); // find all by query (using the `active` scope)
+        //$result = Article::find()->query(["match" => ["title" => "yii"]])->all();
     }
 }
