@@ -7,7 +7,7 @@ p{margin:0;}
 ul{margin:0;padding:0;}
 li{list-style: none;}
 a:focus{outline: none;}
-a {text-decoration: none;}
+a {text-decoration: none;cursor: pointer}
 /* animation */
 @-webkit-keyframes fadein{
     from{opacity: 0; }
@@ -45,7 +45,6 @@ a {text-decoration: none;}
     display: block;
     _height: 100%;
     min-height: 100%;
-    position: relative;
 }
 #header{padding:14px 14px 8px 8px ;overflow:hidden;border-bottom: 1px solid #ebebeb;}
 #header span{color:#666;float: left;line-height:20px;}
@@ -230,6 +229,90 @@ a {text-decoration: none;}
     text-align: center;
     color: #666;
     font-size: 14px;
+}
+
+#container {
+    margin-top: 18px;
+    padding-left: 131px;
+    position: relative;
+}
+#main-left {
+    float: left;
+    position: relative;
+    width: 540px;
+    z-index: 10;
+}
+.ul-result .li-result{
+    font-size: 13px;
+    line-height: 20px;
+    margin-bottom: 21px;
+}
+.ul-result .li-result h3.title{
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 3px;
+}
+.ul-result .li-result h3.title a{
+    color: #1024ee
+}
+#main-right{
+
+}
+#list-footer {
+    bottom: 0;
+    left: 0;
+    min-width: 700px;
+    padding: 6px 0;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    background: #FAFAFA;
+    color: #ccc;
+    font-size: 12px;
+    height: 53px;
+    line-height: 53px;
+    margin-top: 30px;
+    padding-left: 40px;
+}
+#main-right{
+    border-left: 1px solid #e1e1e1;
+    float: right;
+    padding-left: 17px;
+    width: 384px;
+    margin-top: 45px;
+}
+#list-footer span{color:#999;}
+#list-footer a{
+    color: #999;
+    font-size: 12px;
+    margin: 0 8px;
+    text-decoration: none;
+}
+.relation-search{
+    padding: 0;
+    margin: 0 0 0 131px;
+    width: 600px;
+}
+.relation-search h2{
+    padding: 0;
+    line-height:15px;
+}
+.relation-search table{
+    width:540px;
+}
+.relation-search table tbody tr th{
+    font-size: 14px;
+    font-weight: normal;
+    white-space: nowrap;
+    text-align: left;
+    vertical-align: top;
+    width: 175px;
+    line-height: 22px;
+}
+.relation-search table tbody tr th td{width:5px;}
+.relation-search table tbody tr th a{
+    color:#1024ee;
+    text-decoration: underline;
 }
 
 #footer {

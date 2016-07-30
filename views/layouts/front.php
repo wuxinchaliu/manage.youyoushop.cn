@@ -36,7 +36,6 @@ AppAsset::register($this);
     <?= $content ?>
 </div>
 
-<footer id="footer" class="tc">©2016 Renniso.com 任你搜索 京ICP备12006932号-6</footer>
 <?php $this->endBody() ?>
 
 </body>
