@@ -23,7 +23,7 @@ use yii\bootstrap\ActiveForm;
         <div id="list-input-container">
             <input type="hidden" name="ie" value="utf-8">
             <div id="list-suggest-align" class="skin-search-input">
-                <input type="text" name="q" class="placeholder" id="list-input" suggestwidth="528px" autocomplete="off">
+                <input type="text" name="q" class="placeholder" value="<?php echo $keywords;?>" id="list-input" suggestwidth="528px" autocomplete="off">
             </div>
             <input type="submit" id="list-search-button" class="skin-search-button" value="搜一下">
         </div>
@@ -44,56 +44,28 @@ use yii\bootstrap\ActiveForm;
         <!--start main left-->
         <div id="main-left">
             <ul class="ul-result">
-                <li class="li-result">
-                    <h3 class="title"><a href="www.dd.com">中国人民共和国过过过</a></h3>
-                    <p class="desc">撒发送发送到发送放大书法士大夫撒地方撒风</p>
-                    <p class="link">http://www.link.com/adf/?dd=kj</p>
-                </li>
-                <li class="li-result">
-                    <h3 class="title"><a href="www.dd.com">中国人民共和国过过过</a></h3>
-                    <p class="desc">撒发送发送到发送放大书法士大夫撒地方撒风</p>
-                    <p class="link">http://www.link.com/adf/?dd=kj</p>
-                </li>
-                <li class="li-result">
-                    <h3 class="title"><a href="www.dd.com">中国人民共和国过过过</a></h3>
-                    <p class="desc">撒发送发送到发送放大书法士大夫撒地方撒风</p>
-                    <p class="link">http://www.link.com/adf/?dd=kj</p>
-                </li>
-                <li class="li-result">
-                    <h3 class="title"><a href="www.dd.com">中国人民共和国过过过</a></h3>
-                    <p class="desc">撒发送发送到发送放大书法士大夫撒地方撒风</p>
-                    <p class="link">http://www.link.com/adf/?dd=kj</p>
-                </li>
-                <li class="li-result">
-                    <h3 class="title"><a href="www.dd.com">中国人民共和国过过过</a></h3>
-                    <p class="desc">撒发送发送到发送放大书法士大夫撒地方撒风</p>
-                    <p class="link">http://www.link.com/adf/?dd=kj</p>
-                </li>
-                <li class="li-result">
-                    <h3 class="title"><a href="www.dd.com">中国人民共和国过过过</a></h3>
-                    <p class="desc">撒发送发送到发送放大书法士大夫撒地方撒风</p>
-                    <p class="link">http://www.link.com/adf/?dd=kj</p>
-                </li>
-                <li class="li-result">
-                    <h3 class="title"><a href="www.dd.com">中国人民共和国过过过</a></h3>
-                    <p class="desc">撒发送发送到发送放大书法士大夫撒地方撒风</p>
-                    <p class="link">http://www.link.com/adf/?dd=kj</p>
-                </li>
-                <li class="li-result">
-                    <h3 class="title"><a href="www.dd.com">中国人民共和国过过过</a></h3>
-                    <p class="desc">撒发送发送到发送放大书法士大夫撒地方撒风</p>
-                    <p class="link">http://www.link.com/adf/?dd=kj</p>
-                </li>
-                <li class="li-result">
-                    <h3 class="title"><a href="www.dd.com">中国人民共和国过过过</a></h3>
-                    <p class="desc">撒发送发送到发送放大书法士大夫撒地方撒风</p>
-                    <p class="link">http://www.link.com/adf/?dd=kj</p>
-                </li>
-                <li class="li-result">
-                    <h3 class="title"><a href="www.dd.com">中国人民共和国过过过</a></h3>
-                    <p class="desc">撒发送发送到发送放大书法士大夫撒地方撒风</p>
-                    <p class="link">http://www.link.com/adf/?dd=kj</p>
-                </li>
+                <?php
+                    if(!empty($data)){
+                        foreach ($data as $item){
+                            $rid = \app\models\Item::encrypt($item->rid, 'E', Yii::$app->params['encrypt_key']);
+                            $time = time();
+                            $url = Yii::$app->params['host'].'item?t='.base64_encode($rid)."&ts=".$time.'&h='.md5($time.$item->rid.Yii::$app->params['encrypt_key']);
+                            ?>
+                            <li class="li-result">
+                                <h3 class="title"><a href="<?php echo $url;?>"><?php echo $item->title;?></a></h3>
+                                <p class="desc">
+                                    文件类型:<?php echo $item->file_ext;?>
+                                    文件大小:<?PHP echo round($item->user_info['size']/(1024*1024),2);?>M
+                                    分享时间:<?php echo date("Y-m-d H:i:s",substr($item->user_info['share_time'],0,10));?>
+                                </p>
+                                <p class="link"><a href="<?php echo $url;?>"><?php echo $url;?></a></p>
+                            </li>
+                <?php
+                        }
+                    }
+                ?>
+
+
             </ul>
         </div>
         <!--start main right-->
@@ -174,9 +146,10 @@ use yii\bootstrap\ActiveForm;
 <div style="clear:both;"></div>
 <footer id="list-footer" class="tc">
 
-    <a>官方微信</a>&nbsp;|&nbsp;<a>意见反馈</a>|<a>推广合作</a>&nbsp;|&nbsp;<a>使用百度前必读</a>
+    <a>官方微信</a>&nbsp;|&nbsp;<a>意见反馈</a>|<a>推广合作</a>&nbsp;|&nbsp;<a>使用任你搜前必读</a>
     <span>©2016 Renniso.com 任你搜 京ICP备12006932号-6</span>
 </footer>
+
 
 
 

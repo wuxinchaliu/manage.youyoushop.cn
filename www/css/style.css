@@ -315,6 +315,149 @@ a {text-decoration: none;cursor: pointer}
     text-decoration: underline;
 }
 
+
+/*detail style*/
+
+.bgWhite {
+    background: #fff;
+    padding: 10px 20px;
+    width: 947px;
+    margin: 10px auto 0;
+    border: 1px solid #e2e2e2;
+}
+.detailSoft-box {
+    margin: 10px 0 0;
+    position: relative;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    visibility: hidden;
+    clear: both;
+    height: 0;
+    font-size: 0;
+}
+.detailSoft-box .soft-header .pic {
+    float: left;
+    margin: 4px 15px 0 0;
+}
+.detailSoft-box .soft-header .soft-info {
+    overflow: inherit;
+    zoom: 1;
+    padding: 0 325px 0 0;
+}
+.detailSoft-box .soft-header .soft-title {
+    height: 28px;
+}
+.detailSoft-box .button-box .button {
+    position: relative;
+    float: left;
+    width: 266px;
+    height: 62px;
+    overflow: hidden;
+}
+.detailSoft-box .button-box .button, .detailSoft-box .button-box .text-icon, .fixed-bar .download {
+    background: url(http://icon.zol-img.com.cn/xiazai/new/xiazaiDetailButton-bg_v1.png?v1) no-repeat;
+}
+.detailSoft-box .soft-header .soft-title {
+    position: relative;
+    font: normal 22px/38px arial,'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1';
+    word-break: break-all;
+}
+.soft-summary-mt {
+    margin-top: 10px;
+    border-top: 1px solid #ececec;
+    padding-top: 15px;
+}
+.soft-box {
+    width: 600px;
+    float: left;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+.soft-text-l {
+    width: 300px;
+    float: left;
+}
+.downloat-box {
+    margin-bottom: 24px;
+}
+.detailSoft-box .button-box {
+    position: relative;
+    height: 70px;
+}
+.detailSoft-box .button-box .downLoad-button {
+    background-position: 0 0;
+    background-color: #279545;
+}
+.detailSoft-box .soft-text li {
+    float: none;
+    overflow: hidden;
+    height: 28px;
+    width: 100%;
+    padding: 0;
+    line-height: 28px;
+    word-break: break-all;
+}
+.detailSoft-box .soft-text span {
+    float: left;
+    width: 60px;
+    color: #999;
+}
+
+.detailSoft-box .soft-text {
+    margin: 10px 0 0 0;
+}
+.soft-text-r {
+    width: 300px;
+    float: right;
+}
+.detailSoft-box .download-box {
+    padding: 0 9px 3px 0;
+}
+.detailSoft-box .relative-soft {
+    _display: inline;
+    float: right;
+    line-height: 28px;
+    width: 271px;
+    height: 62px;
+    position: relative;
+}
+.detailSoft-box .soft-text {
+    margin: 10px 0 0 0;
+}
+.alink-acolor {
+    color: #999;
+}
+
+.detailSoft-box .relative-soft li {
+    float: none;
+    width: 100%;
+}
+.down-alink-ul li {
+    height: 38px;
+    line-height: 38px;
+    border-bottom: 1px dashed #ccc;
+}
+.down-alink-ul span {
+    float: right;
+    color: #999;
+    font-family: arial;
+}
+.down-alink-ul a {
+    color: #36c;
+    height: 38px;
+    overflow: hidden;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.detailSoft-box .button-box .dnum {
+    top: 36px;
+    color: #fff;
+    font-family: Arial;
+    line-height: 16px;
+}
 #footer {
     bottom: 0;
     left: 0;

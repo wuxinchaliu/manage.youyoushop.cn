@@ -41,7 +41,7 @@ $config = [
                 ],
                 // configure more hosts if you have a cluster
             ],
-            'auth' => ['username' => 'qilin', 'password' => 'qilin@123']
+
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -65,6 +65,9 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '<controller:\w+>/<id:\w+>'=>'<controller>/view',
+                '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+                '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
             ],
         ],
     ],

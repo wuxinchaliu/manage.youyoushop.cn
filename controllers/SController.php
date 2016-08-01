@@ -23,9 +23,10 @@ class SController extends Controller
 		$s = Yii::$app->request->get("q");
 		if(!empty($s)){
 			$data = Item::find()->query(["match" => ["title" => $s]])->all();
-			//print_r($data);exit;
-			return $this->render("list");
+
+			return $this->render("list", ['data' => $data,'keywords' => $s]);
 		}
 		return $this->render('index');
 	}
+
 }
