@@ -357,7 +357,7 @@ a {text-decoration: none;cursor: pointer}
     overflow: hidden;
 }
 .detailSoft-box .button-box .button, .detailSoft-box .button-box .text-icon, .fixed-bar .download {
-    background: url(http://icon.zol-img.com.cn/xiazai/new/xiazaiDetailButton-bg_v1.png?v1) no-repeat;
+    background: url(/images/download_icon.png) no-repeat;
 }
 .detailSoft-box .soft-header .soft-title {
     position: relative;
@@ -453,10 +453,14 @@ a {text-decoration: none;cursor: pointer}
     text-overflow: ellipsis;
 }
 .detailSoft-box .button-box .dnum {
-    top: 36px;
     color: #fff;
+    font-size:28px;
+    font-weight:bold;
     font-family: Arial;
+    position: absolute;
     line-height: 16px;
+    left: 90px;
+    top:25px;
 }
 #footer {
     bottom: 0;

@@ -38,14 +38,11 @@ use yii\bootstrap\ActiveForm;
     <!-- detailSoft-box -->
     <div class="detailSoft-box" >
         <div class="soft-header clearfix">
-            <span class="pic"><img onerror="this.src='http://icon.zol-img.com.cn/xiazai/new/softpic.jpg'" src="http://b.zol-img.com.cn/soft/6_64x64/533/cefMSIs8BWZWw.jpg" alt="UltraEdit UE编辑器绿色版" width="64" height="64"></span>
+            <span class="pic"><img src="<?php echo $item->file_info['avatar_url'];?>" alt="$item->title" width="64" height="64"></span>
             <div class="soft-info">
                 <h1 class="soft-title" itemprop="name">
-                    <label>UltraEdit UE编辑器 绿色版</label>
+                    <label><?php echo $item ? $item->title : '';?></label>
                 </h1>
-
-                <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a></div>
-                <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","weixin","tsina","sqq","tqq","renren","mshare","douban"],"viewText":"分享到：","viewSize":"24"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","weixin","tsina","sqq","tqq","renren","mshare","douban"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 
             </div>
         </div>
@@ -55,12 +52,12 @@ use yii\bootstrap\ActiveForm;
                 <div class="soft-text-l">
                     <div class="downloat-box clearfix">
                         <div class="button-box">
-                             <a id="downloader_main" href="" class="button downLoad-button">
+                             <a id="downloader_main" href="/item/download?url=<?php echo $download_url;?>&hash=<?php echo md5(time());?>" class="button downLoad-button">
                                  <span class="text">
                                      <i class="text-icon"></i>
                                      <em></em>
                                  </span>
-                                 <span class="dnum">共有1,578,230次下载</span>
+                                 <span class="dnum">极速下载</span>
                              </a>
                         </div>
                     </div>
@@ -72,46 +69,40 @@ use yii\bootstrap\ActiveForm;
                             <span>文件类型：</span><?php echo $item->file_ext;?>
                         </li>
                         <li>
-                            <span>软件属性：</span>简体中文 共享软件
+                            <span>文件分类：</span><?php echo \app\models\Item::getCategory($item->category);?>
                         </li>
                         <li>
-                            <span>更新时间：</span><?php echo date("Y-m-d H:i:s",substr($item->user_info['share_time'],0,10));?>
+                            <span>分享时间：</span><?php echo date("Y-m-d H:i:s",substr($item->user_info['share_time'],0,10));?>
                         </li>
                         <li>
-                            <span>系统平台：</span>
-                            <em class="system-text">Win7/WinVista/WinXP/Win8兼容软件</em>
+                            <span>分享用户：</span>
+                            <em class="system-text"><?php echo $item->file_info['username'];?></em>
                         </li>
                         <li>
-                            <span>官方网站：</span>
-                            暂无                            </li>
+                            <span>用户主页：</span><a href="">进入用户主页</a></li>
                     </ul>
                 </div>
                 <div class="soft-text-r">
                     <div class="download-box clearfix ">
                         <div class="relative-soft">
-                            <ul class="soft-text">
-                                <li class="recommend">
-                                    <span class="recommendtit">用户推荐：</span>
-                                    <div id="incNum" class="good" onclick="recommend(94683,1)">
-                                        <i class="rate-bar" style="width:25px;"></i>
-                                        <em>157</em>
-                                    </div>
-                                    <div id="desNum" class="bad" onclick="recommend(94683,2)">
-                                        <i class="rate-bar" style="width:75px;"></i>
-                                        <em>472</em>
-                                    </div>
+
+                            <span class="alink-acolor">相关软件：</span>
+                            <ul class="down-alink-ul">
+                                <li><span>2016-04-20</span>
+                                    <a href="/detail/15/145524.shtml">Office2007 免费版</a>
                                 </li>
-                                <li>
-                                    <span>用户评分：</span>
-		                          		<span class="star small-star">
-		                         			<span style="width: 88%;"></span>
-		                          		</span>
-                                    <i class="scroe"><em>8.8</em></i>
-                                    <a href="/94683_all_1.html" class="comment-num" rel="nofollow">查看<em>81</em>人的点评»</a>
+                                <li><span>2016-04-20</span>
+                                    <a href="/detail/15/145524.shtml">Office2007 免费版</a>
+                                </li>
+                                <li><span>2016-04-20</span>
+                                    <a href="/detail/15/145524.shtml">Office2007 免费版</a>
+                                </li>
+                                <li><span>2016-04-27</span><a href="/detail/12/114617.shtml">Word2003 免费版</a>
+                                </li>
+                                <li><span>2016-05-05</span><a href="/detail/34/335364.shtml">汉王OCR图片文字识别 免费中文版</a></li>
+                                <li class="end"><span>2016-07-11</span><a href="/detail/12/115442.shtml">WPS Office </a>
                                 </li>
                             </ul>
-                            <span class="alink-acolor">相关软件：</span>
-                            <ul class="down-alink-ul"><li><span>2016-04-20</span><a href="/detail/15/145524.shtml">Office2007 免费版</a></li><li><span>2016-04-27</span><a href="/detail/12/114617.shtml">Word2003 免费版</a></li><li><span>2016-05-05</span><a href="/detail/34/335364.shtml">汉王OCR图片文字识别 免费中文版</a></li><li class="end"><span>2016-07-11</span><a href="/detail/12/115442.shtml">WPS Office </a></li></ul>
                         </div>
                     </div>
                 </div>
@@ -120,7 +111,11 @@ use yii\bootstrap\ActiveForm;
         </div>
         <div class="soft-bottom">
             <ul>
-                <li class="single-item clearfix"><span>相关热搜：</span><div class="filter-words clearfix"><a href="/search?wd=ultraedit%C2%CC%C9%AB%B0%E6&amp;type=1">ultraedit绿色版</a> <a href="/search?wd=ultraedit%CF%C2%D4%D8&amp;type=1">ultraedit下载</a> <a href="/search?wd=UltraEdit%C6%C6%BD%E2%B0%E6&amp;type=1">UltraEdit破解版</a> </div></li>                </ul>
+                <li class="single-item clearfix"><span>相关热搜：</span><div class="filter-words clearfix"><a href="/search?wd=ultraedit%C2%CC%C9%AB%B0%E6&amp;type=1">ultraedit绿色版</a> <a href="/search?wd=ultraedit%CF%C2%D4%D8&amp;type=1">ultraedit下载</a> <a href="/search?wd=UltraEdit%C6%C6%BD%E2%B0%E6&amp;type=1">UltraEdit破解版</a> </div></li>
+            </ul>
+
+            <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a></div>
+            <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","weixin","tsina","sqq","tqq","renren","mshare","douban"],"viewText":"分享到：","viewSize":"24"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","weixin","tsina","sqq","tqq","renren","mshare","douban"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
         </div>
         <!-- //detailSoft-box -->
     </div>
