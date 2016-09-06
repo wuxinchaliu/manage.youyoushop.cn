@@ -48,8 +48,13 @@ use yii\bootstrap\ActiveForm;
 <footer id="footer" class="tc">
     Copyright©2016 Renniso.com 任你搜索 京ICP备12006932号-6
     <a>意见反馈</a>&nbsp;&nbsp;<a>推广合作</a>&nbsp;&nbsp;<a>官方微信</a>&nbsp;&nbsp;<a>使用百度前必读</a>
-
 </footer>
 
+<script>
+    $("#input").mousedown(function(){
+        var value = $(this).val();
+       
+    });
+</script>
 
 

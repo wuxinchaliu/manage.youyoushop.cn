@@ -11,7 +11,6 @@ use app\assets\AppAsset;
 
 AppAsset::register($this);
 ?>
-<?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
@@ -21,7 +20,7 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title>任你搜--百度,新浪网盘资源任你搜索-www.renniso.com</title>
     <link rel="stylesheet" href="/css/style.css"/>
-
+    <script src="/static/js/jquery.js"></script>
     <!-- HTML5 Support for IE -->
     <!--[if lt IE 9]>
     <script src="/static/js/html5shim.js"></script>
@@ -31,14 +30,17 @@ AppAsset::register($this);
     <link rel="shortcut icon" href="/images/favicon.png">
 </head>
 <body>
-<?php $this->beginBody() ?>
+<?php $this->beginBody(); ?>
 
 <div id="wrapper">
-    <?= $content ?>
+    <?php echo $content; ?>
 </div>
 
-<?php $this->endBody() ?>
+<?php
+$this->assetBundles = [];
+$this->endBody();
+?>
 
 </body>
 </html>
-<?php $this->endPage() ?>
+
