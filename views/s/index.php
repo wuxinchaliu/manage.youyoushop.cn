@@ -40,6 +40,9 @@ use yii\bootstrap\ActiveForm;
                 <input type="submit" id="search-button" class="skin-search-button" value="搜一下">
             </div>
         <?php ActiveForm::end(); ?>
+        <ul id="tip">
+
+        </ul>
 
     </div>
 
@@ -51,9 +54,22 @@ use yii\bootstrap\ActiveForm;
 </footer>
 
 <script>
-    $("#input").mousedown(function(){
-        var value = $(this).val();
-       
+    $( "#input" ).keyup(function() {
+        var keyword = $(this).val();
+        $.ajax({
+            method: "POST",
+            url: "/s/search",
+            data: { keyword: keyword},
+            success:function (result) {
+                $("#tip").html('');
+                if(result['code'] ==0 ){
+                    var data = result['data'];
+                    for(var key in data){
+                        $("#tip").append("<li>"+data[key]+"</li>");
+                    }
+                }
+            }
+        });
     });
 </script>
 

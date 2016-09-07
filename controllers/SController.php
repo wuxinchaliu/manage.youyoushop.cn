@@ -18,6 +18,7 @@ class SController extends Controller
 {
     //设置前台布局
     public $layout = 'front';
+    public $enableCsrfValidation = false;
 
     public function actionIndex(){
         $s = Yii::$app->request->get("q");
@@ -25,9 +26,49 @@ class SController extends Controller
             $query = ["common" => ["title" => ["query"=>$s,
                 "low_freq_operator"=>'and']]];
             $data = Item::find()->query($query)->all();
+            print_r($data);exit;
             return $this->render("list", ['data' => $data,'keywords' => $s]);
         }
         return $this->render('index');
     }
+
+    public function actionSearch(){
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        if(Yii::$app->request->isAjax){
+            $data = Yii::$app->request->post();
+
+            if(isset($data['keyword']) && !empty($data['keyword'])){
+                $query = [
+                    "query" => [
+                        "common" => [
+                            "title" => [
+                                "query"=>$data['keyword'],
+                                "low_freq_operator"=>'and'
+                            ]
+                        ]
+                    ],
+
+                ];
+                $data = Item::find()->query($query)->all();
+                if(!empty($data)){
+                    $titles = [];
+                    foreach ($data as $k => $v){
+                        $titles[] = $v->title;
+                    }
+                    return [
+                        'data' => $titles,
+                        'code' => 0,
+                    ];
+
+                }
+            }
+        }
+        return [
+            'data' => '',
+            'code' => 1,
+        ];
+    }
+
+
 
 }
