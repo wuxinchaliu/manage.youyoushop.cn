@@ -26,7 +26,6 @@ class SController extends Controller
             $query = ["common" => ["title" => ["query"=>$s,
                 "low_freq_operator"=>'and']]];
             $data = Item::find()->query($query)->all();
-            print_r($data);exit;
             return $this->render("list", ['data' => $data,'keywords' => $s]);
         }
         return $this->render('index');
